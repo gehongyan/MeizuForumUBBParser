@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Flyme社区审核图片解析
 // @namespace    https://greasyfork.org/zh-CN/users/188666-gehongyan
-// @version      1.0
+// @version      1.0.1
 // @description  to parse the img tag to show images directly
 // @author       gehongyan
 // @grant        none
@@ -20,7 +20,7 @@
     for (var i = 0; i < allDivs.snapshotLength; i++) {
         thisDiv = allDivs.snapshotItem(i);
         var altText = thisDiv.innerHTML;
-        var altHTML = altText.replace(/\[img\](.+?)\[\/img\]/ig,"<img src=$1 style=\"height: 33em;\" >");
+        var altHTML = altText.replace(/\[img\](.+?)\[\/img\]/ig,"<img src=$1 style=\"max-width:60%; max-height:60%;\" >");
         //document.write(altHTML + "<br /><br />");
         /*var nodeList = parseToDOM(altHTML);
         console.log(nodeList.length);
