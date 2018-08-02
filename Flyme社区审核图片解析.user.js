@@ -1,18 +1,18 @@
 // ==UserScript==
-// @name         Flyme社区审核图片解析
+// @name         魅族社区审核图片解析
 // @namespace    https://greasyfork.org/zh-CN/users/188666-gehongyan
-// @version      1.0.1
+// @version      1.0.2
 // @description  to parse the img tag to show images directly
 // @author       gehongyan
 // @grant        none
-// @include      http://bbs.flyme.cn/forum.php?mod=modcp&action=moderate*
+// @include      https://bbs.meizu.cn/forum.php?mod=modcp&action=moderate*
 // ==/UserScript==
 
 (function() {
     'use strict';
     var allDivs, thisDiv;
     allDivs = document.evaluate(
-        "//div[@style=\"overflow: auto; overflow-x: hidden; height:55px; word-break: break-all;\"]",
+        "//div[@style=\"overflow: auto; overflow-x: hidden; height:112px; word-break: break-all;\"]",
         document,
         null,
         XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
