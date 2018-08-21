@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         魅族社区审核图片解析
 // @namespace    https://greasyfork.org/zh-CN/users/188666-gehongyan
-// @version      1.0.2
+// @version      1.1.0
 // @description  to parse the img tag to show images directly
 // @author       gehongyan
 // @grant        none
@@ -20,20 +20,17 @@
     for (var i = 0; i < allDivs.snapshotLength; i++) {
         thisDiv = allDivs.snapshotItem(i);
         var altText = thisDiv.innerHTML;
+        //console.log(altText);
         var altHTML = altText.replace(/\[img\](.+?)\[\/img\]/ig,"<img src=$1 style=\"max-width:60%; max-height:60%;\" >");
-        //document.write(altHTML + "<br /><br />");
-        /*var nodeList = parseToDOM(altHTML);
-        console.log(nodeList.length);
-        for (var j = 0; j < nodeList.length; j++) {
-            console.log(j, nodeList[j]);
-        }*/
         var newImgTag = document.createElement("div");
         newImgTag.innerHTML = altHTML;
         thisDiv.parentNode.replaceChild(newImgTag, thisDiv);
-        //var altTextNode = document.createTextNode(theImage.alt);
-        //theImage.parentNode.replaceChild(altText, theImage);
-        //var replacement = document.createTextNode(altHTML);
-        //document.body.insertBefore(nodeList.innerText, document.body.firstChild);
+    }
+    var imgLinks = document.getElementsByTagName('img');
+    for (i = 0; i < imgLinks.length; i++) {
+        var imgLink = imgLinks[i];
+        var altImgLink = imgLink.src.replace(/https:\/\/bbs.meizu.cn\/data\/attachment\/forum\/(.+)/ig, "https://bbsimage.res.meizu.com/forum/$1");
+        imgLink.src = altImgLink;
     }
 
 })();
