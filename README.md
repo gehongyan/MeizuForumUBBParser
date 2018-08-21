@@ -7,3 +7,4 @@
 2. 改写了UBB代码格式的图片标签为HTML代码格式，使图片能够直接显示
 ![ImgTag](https://github.com/gehongyan/MeizuForumImgParser/raw/master/ImgTag.png)
 ![ImgTagAfterFixed](https://github.com/gehongyan/MeizuForumImgParser/raw/master/ImgTagAfterFixed.png)
+3. 适配了更多格式与超链接
